@@ -168,7 +168,7 @@ CREATE  campgrounds/:id/comments/      POST
 ## Finish Styleing Show Page
  * Add public directory
  * Add custon stylesheet
-## ------------------------------ AUTHENTICATION BASICS-------------------------
+## ------------------ AUTHENTICATION BASICS --------------
 # Authentication Refers to finding out if someone is who they say they are
 ##Auth Pt 1. - Add User Model
 * Install all packages needed for auth
@@ -193,7 +193,7 @@ CREATE  campgrounds/:id/comments/      POST
 ## Auth Pt. 5 - Show/Hide Links
 * Show/hide auth links in navbar correctly
 
-## ------------------------------ AUTHENTICATION BASICS END-------------------------
+## -------------- AUTHENTICATION BASICS END ------------------
 
 ## Refactor the Routes
 * Use Express router to reorganize all routes

@@ -52,7 +52,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
 // Execute/Seed the DB at the beginning to have code that could be run
-// ===================================================================
+// ==================================================================
 // seedDB();
 
 // =======================

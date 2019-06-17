@@ -1,5 +1,6 @@
 require("dotenv").config();
-const port = 3000;
+const port = process.env.PORT || 3000;
+const ip = process.env.IP || "127.0.0.1";
 
 const express = require("express"),
   app = express(),
@@ -22,7 +23,7 @@ let commentRoutes = require("./routes/comments"),
 // ===========================
 // ==== CONFIGURATIONS =======
 // ===========================
-// Connect/Create a "yelp_camp" database in mongodb directory
+// // Connect/Create a "yelp_camp" database in mongodb directory
 // mongoose.connect("mongodb://localhost:27017/yelp_camp", {
 //   useNewUrlParser: true
 // });
@@ -52,7 +53,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
 // Execute/Seed the DB at the beginning to have code that could be run
-// ==================================================================
+// ===================================================================
 // seedDB();
 
 // =======================
@@ -91,5 +92,5 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 // Starting the Server
 // SERVER
 app.listen(port, function() {
-  console.log("Server has started .... at port " + port);
+  console.log("Server has started .... at port " + port + " ip: " + ip);
 });

@@ -24,6 +24,7 @@ let commentRoutes = require("./routes/comments"),
 // ==== CONFIGURATIONS =======
 // ===========================
 // Connect/Create a "yelp_camp" database in mongodb directory || heroku "DATABASEURL" server
+console.log(process.env.DATABASEURL);
 mongoose.connect(process.env.DATABASEURL, {
   useNewUrlParser: true
 });
@@ -74,7 +75,12 @@ app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-// Starting the Yelp Server
+// Starting the Server
+// SERVER
+// app.listen(port, function() {
+//   console.log("Server has started .... at port " + port);
+// });
+
 app.listen(port, ip, function() {
-  console.log("Server has started .... at port " + port + " !");
+  console.log("Server has started .... at port " + port);
 });

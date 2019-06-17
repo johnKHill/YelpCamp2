@@ -24,9 +24,25 @@ let commentRoutes = require("./routes/comments"),
 // ==== CONFIGURATIONS =======
 // ===========================
 // Connect/Create a "yelp_camp" database in mongodb directory
-mongoose.connect("mongodb://localhost:27017/yelp_camp", {
-  useNewUrlParser: true
-});
+// mongoose.connect("mongodb://localhost:27017/yelp_camp", {
+//   useNewUrlParser: true
+// });
+// Connect/Create a "mongoDB Atlas" database
+mongoose
+  .connect(
+    "mongodb+srv://Admin:Rocko2018@cluster0-1llwg.mongodb.net/test?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useCreateIndex: true
+    }
+  )
+  .then(() => {
+    console.log("Connected to DB!");
+  })
+  .catch(err => {
+    console.log("Error", err.message);
+  });
+
 mongoose.set("useCreateIndex", true);
 // Use bodyParser to have the form data be available in req.body
 app.use(bodyParser.urlencoded({ extended: true }));

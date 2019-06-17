@@ -1,6 +1,6 @@
 require("dotenv").config();
-const port = process.env.PORT || 3000;
-const ip = process.env.IP || "127.0.0.1";
+const port = 3000;
+// const ip = process.env.IP || "127.0.0.1";
 
 const express = require("express"),
   app = express(),
@@ -23,25 +23,11 @@ let commentRoutes = require("./routes/comments"),
 // ===========================
 // ==== CONFIGURATIONS =======
 // ===========================
-// // Connect/Create a "yelp_camp" database in mongodb directory
-// mongoose.connect("mongodb://localhost:27017/yelp_camp", {
-//   useNewUrlParser: true
-// });
-// Connect/Create a "mongoDB Atlas" database
-mongoose
-  .connect(
-    "mongodb+srv://Admin:Rocko2018@cluster0-1llwg.mongodb.net/test?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useCreateIndex: true
-    }
-  )
-  .then(() => {
-    console.log("Connected to DB!");
-  })
-  .catch(err => {
-    console.log("Error", err.message);
-  });
+// Connect/Create a "yelp_camp" database in mongodb directory
+
+mongoose.connect(process.env.DATABASEURL, {
+  useNewUrlParser: true
+});
 
 mongoose.set("useCreateIndex", true);
 // Use bodyParser to have the form data be available in req.body
@@ -92,5 +78,5 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 // Starting the Server
 // SERVER
 app.listen(port, function() {
-  console.log("Server has started .... at port " + port + " ip: " + ip);
+  console.log("Server has started .... at port " + port);
 });

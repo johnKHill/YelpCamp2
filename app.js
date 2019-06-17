@@ -1,6 +1,6 @@
 require("dotenv").config();
 const port = 3000;
-// const ip = process.env.IP || "127.0.0.1";
+const ip = process.env.IP || "127.0.0.1";
 
 const express = require("express"),
   app = express(),
@@ -23,8 +23,7 @@ let commentRoutes = require("./routes/comments"),
 // ===========================
 // ==== CONFIGURATIONS =======
 // ===========================
-// Connect/Create a "yelp_camp" database in mongodb directory
-
+// Connect/Create a "yelp_camp" database in mongodb directory || heroku "DATABASEURL" server
 mongoose.connect(process.env.DATABASEURL, {
   useNewUrlParser: true
 });
@@ -76,11 +75,6 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
 // Starting the Server
-// SERVER
-// app.listen(port, function() {
-//   console.log("Server has started .... at port " + port);
-// });
-
-app.listen(process.env.PORT, process.env.IP, function() {
-  console.log("The YelpCamp Server Has Started!");
+app.listen(port, ip, function() {
+  console.log("Server has started .... at port " + port + " !");
 });

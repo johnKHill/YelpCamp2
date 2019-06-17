@@ -1,6 +1,5 @@
 require("dotenv").config();
-const port = process.env.PORT || 3000;
-const ip = process.env.IP || "127.0.0.1";
+const port = 3000;
 
 const express = require("express"),
   app = express(),
@@ -92,5 +91,5 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 // Starting the Server
 // SERVER
 app.listen(port, function() {
-  console.log("Server has started .... at port " + port + " ip: " + ip);
+  console.log("Server has started .... at port " + port);
 });

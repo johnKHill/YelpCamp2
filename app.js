@@ -24,7 +24,6 @@ let commentRoutes = require("./routes/comments"),
 // ==== CONFIGURATIONS =======
 // ===========================
 // Connect/Create a "yelp_camp" database in mongodb directory || heroku "DATABASEURL" server
-console.log(process.env.DATABASEURL);
 mongoose.connect(process.env.DATABASEURL, {
   useNewUrlParser: true
 });

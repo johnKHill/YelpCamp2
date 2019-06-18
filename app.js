@@ -81,6 +81,10 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 //   console.log("Server has started .... at port " + port);
 // });
 
-app.listen(process.env.IP, ip, function() {
+// app.listen(process.env.IP, ip, function() {
+//   console.log("Server has started...");
+// });
+
+app.listen(process.env.PORT, function() {
   console.log("Server has started...");
 });

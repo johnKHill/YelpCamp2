@@ -1,5 +1,5 @@
 require("dotenv").config();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const ip = process.env.IP || "127.0.0.1";
 
 const express = require("express"),
@@ -76,15 +76,6 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
 // Starting the Server
-// SERVER
-// app.listen(port, function() {
-//   console.log("Server has started .... at port " + port);
-// });
-
-// app.listen(process.env.IP, ip, function() {
-//   console.log("Server has started...");
-// });
-
 app.listen(port, ip, function() {
-  console.log("Server has started...");
+  console.log("The YelpCamp Server Has Started!");
 });
